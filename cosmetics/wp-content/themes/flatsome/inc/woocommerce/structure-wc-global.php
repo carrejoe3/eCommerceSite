@@ -146,7 +146,12 @@ function flatsome_woocommerce_breadcrumbs() {
 
 add_filter( 'woocommerce_breadcrumb_defaults', 'flatsome_woocommerce_breadcrumbs' );
 
-
+/**
+ * Add default breadcrumbs.
+ *
+ * @see woocommerce_breadcrumb()
+ */
+add_action( 'flatsome_breadcrumb' , 'woocommerce_breadcrumb', 20 );
 
 /* Update cart price */
 function flatsome_header_add_to_cart_fragment( $fragments ) {
@@ -272,8 +277,6 @@ function flatsome_pages_in_search_results(){
 
       wp_reset_query();
 
-      do_action( 'flatsome_products_page_loader' );
-
       if(!empty($posts) || !empty($pages)){
           $list_type = get_theme_mod( 'search_result_style', 'slider' );
           if(!empty($posts)) echo '<hr/><h4 class="uppercase">'.__('Posts found','flatsome').'</h4>'.do_shortcode('[blog_posts columns="3" columns__md="3" columns__sm="2" type="'.$list_type.'" image_height="16-9" ids="'.implode(',',$posts).'"]');
@@ -392,7 +395,7 @@ if( !function_exists('flatsome_wc_get_gallery_image_html') ) {
       'data-large_image'        => $full_src[0],
       'data-large_image_width'  => $full_src[1],
       'data-large_image_height' => $full_src[2],
-      'class'                   => $main_image ? 'wp-post-image' : '',
+      'class'                   => $main_image ? 'wp-post-image skip-lazy' : 'skip-lazy', // skip-lazy, blacklist for Jetpack's lazy load.
     ) );
 
     $image_wrapper_class = $main_image ? 'slide first' : 'slide';

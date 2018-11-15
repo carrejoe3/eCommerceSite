@@ -8,12 +8,16 @@ function ux_logo( $atts, $content = null ){
       'hover' => '',
       'link' => '',
       'target' => '_self',
+      'rel' => '',
       'height' => '50',
     ), $atts ) );
 
-    $height = intval($height);
-    $width = 'auto';
-	$link_atts = array( 'target' => $target );
+	$height    = intval( $height );
+	$width     = 'auto';
+	$link_atts = array(
+		'target' => $target,
+		'rel'    => array( $rel ),
+	);
 
     if(!$img){
       $org_img = get_template_directory_uri().'/assets/img/logo.png';

@@ -8,6 +8,8 @@ function flatsome_setup() {
   /* add woocommerce support */
   add_theme_support( 'woocommerce' );
 
+  add_theme_support( 'yoast-seo-breadcrumbs' );
+
   /* add title tag support */
   add_theme_support( 'title-tag' );
 

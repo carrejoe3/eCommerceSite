@@ -34,10 +34,27 @@ Flatsome_Option::add_field( 'option',  array(
 Flatsome_Option::add_field( 'option', array(
 	'type'     => 'checkbox',
 	'settings' => 'cart_auto_refresh',
-	'label'    => __( 'Auto update on quantity change (NEW)', 'flatsome-admin' ),
+	'label'    => __( 'Auto update on quantity change', 'flatsome-admin' ),
 	'section'  => 'cart-checkout',
 	'default'  => 0,
 ) );
+
+
+Flatsome_Option::add_field( 'option',  array(
+  'type'        => 'checkbox',
+  'settings'     => 'cart_boxed_shipping_labels',
+  'label'       => __( 'Boxed Shipping labels', 'flatsome' ) . ' (NEW)',
+  'section'     => 'cart-checkout',
+  'default' => 0
+));
+
+Flatsome_Option::add_field( 'option',  array(
+  'type'        => 'checkbox',
+  'settings'     => 'cart_estimate_text',
+  'label'       => __( 'Show shipping estimate destination', 'flatsome' ) . ' (NEW)',
+  'section'     => 'cart-checkout',
+  'default' => 1
+));
 
 Flatsome_Option::add_field( 'option',  array(
 	'type'        => 'textarea',
@@ -90,7 +107,7 @@ if( is_nextend_facebook_login() ){
 Flatsome_Option::add_field( 'option',  array(
   'type'        => 'checkbox',
   'settings'     => 'checkout_floating_labels',
-  'label'       => __( 'Floating field labels (NEW)', 'flatsome-admin' ),
+  'label'       => __( 'Floating field labels', 'flatsome-admin' ),
   'section'     => 'woocommerce_checkout',
   'default' => 0
 ));
@@ -98,7 +115,7 @@ Flatsome_Option::add_field( 'option',  array(
 Flatsome_Option::add_field( 'option',  array(
   'type'        => 'checkbox',
   'settings'     => 'checkout_fields_email_first',
-  'label'       => __( 'Move E-mail field to first position (NEW)', 'flatsome-admin' ),
+  'label'       => __( 'Move E-mail field to first position', 'flatsome-admin' ),
   'section'     => 'woocommerce_checkout',
   'default' => 0
 ));
@@ -106,7 +123,7 @@ Flatsome_Option::add_field( 'option',  array(
 Flatsome_Option::add_field( 'option',  array(
   'type'        => 'checkbox',
   'settings'     => 'checkout_sticky_sidebar',
-  'label'       => __( 'Sticky sidebar (NEW)', 'flatsome-admin' ),
+  'label'       => __( 'Sticky sidebar', 'flatsome-admin' ),
   'section'     => 'woocommerce_checkout',
   'default' => 0
 ));

@@ -30,11 +30,6 @@ $type = get_theme_mod('related_products', 'slider');
 if($type == 'hidden') return;
 if($type == 'grid') $type = 'row';
 
-// Disable slider if less than selected products pr row.
-if ( sizeof( $related_products ) < (get_theme_mod('related_products_pr_row', 4)+1) ) {
-  $type = 'row';
-}
-
 $repater['type'] = $type;
 $repater['columns'] = get_theme_mod('related_products_pr_row', 4);
 $repater['slider_style'] = 'reveal';

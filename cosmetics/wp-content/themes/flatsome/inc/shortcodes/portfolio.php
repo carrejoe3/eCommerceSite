@@ -207,13 +207,6 @@ if ( isset( $atts['ids'] ) ) {
 
 $wp_query = new WP_Query( $args );
 
-
-// Disable slider if less than selected products pr row.
-if ( $wp_query->post_count < ($repeater['columns']+1) ) {
-  if($repeater['type'] == 'slider') $repeater['type'] = 'row';
-}
-
-
 // Get repeater structure
 get_flatsome_repeater_start($repeater);
 

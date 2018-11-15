@@ -106,6 +106,11 @@ if ( is_woocommerce_activated() ) {
 		require $integrations_url . '/wc-composite-products/composite-products.php';
 	}
 
+	// Yoast Integration.
+	if ( class_exists( 'WPSEO_Frontend' ) ) {
+		require $integrations_url . '/wp-seo/class-wp-seo.php';
+	}
+
 	// WooCommerce Ajax Navigation.
 	add_filter( '_ajax_layered_nav_containers', 'ux_add_custom_container' );
 	function ux_add_custom_container( $containers ) {

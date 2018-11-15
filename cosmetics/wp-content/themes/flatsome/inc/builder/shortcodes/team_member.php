@@ -33,7 +33,6 @@ add_ux_builder_shortcode( 'team_member', array(
 
                 'name' => array( 'type' => 'textfield','heading' => 'Name', 'default' => '', 'on_change' => array( 'selector' => '.person-name', 'content' => '{{ value }}')),
                 'title' => array( 'type' => 'textfield','heading' => 'Title', 'default' => '',  'on_change' => array( 'selector' => '.person-title', 'content' => '{{ value }}')),
-                'link' => array( 'type' => 'textfield','heading' => 'Link', 'default' => ''),
                 'depth' => array(
                     'type' => 'slider',
                     'heading' => __( 'Depth' ),

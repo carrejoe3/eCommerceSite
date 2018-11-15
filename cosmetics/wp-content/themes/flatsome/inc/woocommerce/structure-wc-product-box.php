@@ -96,15 +96,16 @@ if ( ! function_exists( 'flatsome_woocommerce_shop_loop_category' ) ) {
 			<?php
 			global $product;
 			$product_cats = function_exists( 'wc_get_product_category_list' ) ? wc_get_product_category_list( get_the_ID(), '\n', '', '' ) : $product->get_categories( '\n', '', '' );
-
 			$product_cats = strip_tags( $product_cats );
 
 			if ( $product_cats ) {
-				list( $firstpart ) = explode( '\n', $product_cats );
-				echo $firstpart;
+				list( $first_part ) = explode( '\n', $product_cats );
+				echo esc_html( apply_filters( 'flatsome_woocommerce_shop_loop_category', $first_part, $product ) );
 			}
 			?>
-		</p> <?php }
+		</p>
+	<?php
+	}
 }
 add_action( 'woocommerce_shop_loop_item_title', 'flatsome_woocommerce_shop_loop_category', 0 );
 

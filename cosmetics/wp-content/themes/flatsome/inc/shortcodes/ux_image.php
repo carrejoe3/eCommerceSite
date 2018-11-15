@@ -27,6 +27,7 @@ function ux_image( $atts, $content = null ) {
 		'depth_hover'     => '',
 		'link'            => '',
 		'target'          => '_self',
+		'rel'             => '',
 	), $atts ) );
 
 	if ( empty( $id ) ) {
@@ -43,7 +44,10 @@ function ux_image( $atts, $content = null ) {
 	$classes_inner = array( 'img-inner' );
 	$classes_img   = array();
 	$image_meta    = wp_prepare_attachment_for_js( $id );
-	$link_atts     = array( 'target' => $target );
+	$link_atts     = array(
+		'target' => $target,
+		'rel'    => array( $rel ),
+	);
 
 	if ( is_numeric( $id ) ) {
 		if ( ! $org_img ) {

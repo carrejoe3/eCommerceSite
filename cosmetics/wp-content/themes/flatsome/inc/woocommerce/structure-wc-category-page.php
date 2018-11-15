@@ -63,6 +63,10 @@ function flatsome_product_row_classes($cols = null){
       $classes[] = 'has-equal-box-heights';
     }
 
+	if ( get_theme_mod( 'equalize_product_box' ) ) {
+		$classes[] = 'equalize-box';
+	}
+
     return implode(' ', $classes);
 }
 

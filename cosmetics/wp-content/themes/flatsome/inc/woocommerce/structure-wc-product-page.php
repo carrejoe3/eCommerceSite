@@ -275,3 +275,40 @@ function flatsome_related_products_args( $args ) {
   return $args;
 }
 add_filter( 'woocommerce_output_related_products_args', 'flatsome_related_products_args' );
+
+
+function flatsome_sticky_add_to_cart_before() {
+	if ( ! is_product() || ! get_theme_mod( 'product_sticky_cart', 0 ) ) {
+		return;
+	}
+
+	global $product;
+	echo '<div class="sticky-add-to-cart-wrapper">';
+	echo '<div class="sticky-add-to-cart">';
+	echo '<div class="sticky-add-to-cart__product">';
+	$image_id = $product->get_image_id();
+	$image    = wp_get_attachment_image_src( $image_id, 'woocommerce_gallery_thumbnail' );
+	if ( $image ) {
+		$image = '<img src="' . $image[0] . '" class="sticky-add-to-cart-img" />';
+		echo $image;
+	}
+	echo '<div class="product-title-small hide-for-small"><strong>' . get_the_title() . '</strong></div>';
+	if ( ! $product->is_type( 'variable' ) ) {
+		woocommerce_template_single_price();
+	}
+	echo '</div>';
+}
+
+add_action( 'woocommerce_before_add_to_cart_button', 'flatsome_sticky_add_to_cart_before', -100 );
+
+
+function flatsome_sticky_add_to_cart_after() {
+	if ( ! is_product() || ! get_theme_mod( 'product_sticky_cart', 0 ) ) {
+		return;
+	}
+
+	echo '</div>';
+	echo '</div>';
+}
+
+add_action( 'woocommerce_after_add_to_cart_button', 'flatsome_sticky_add_to_cart_after', 100 );

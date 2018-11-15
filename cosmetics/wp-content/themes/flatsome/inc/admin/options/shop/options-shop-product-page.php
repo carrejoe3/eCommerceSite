@@ -232,6 +232,14 @@ Flatsome_Option::add_field( 'option', array(
 ) );
 
 Flatsome_Option::add_field( 'option', array(
+	'type'            => 'checkbox',
+	'settings'        => 'product_sticky_cart',
+	'label'           => __( 'Sticky add to cart', 'flatsome-admin' ).' (BETA)',
+	'section'         => 'product-page',
+	'default'         => 0,
+) );
+
+Flatsome_Option::add_field( 'option', array(
 	'type'            => 'radio-buttonset',
 	'settings'        => 'product_info_align',
 	'label'           => __( 'Text Align', 'flatsome-admin' ),

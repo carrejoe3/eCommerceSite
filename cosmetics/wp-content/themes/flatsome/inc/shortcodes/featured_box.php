@@ -11,6 +11,7 @@ function featured_box( $atts, $content = null ) {
 		'pos'         => 'top',
 		'link'        => '',
 		'target'      => '_self',
+		'rel'         => '',
 		'tooltip'     => '',
 		'margin'      => '',
 		'icon_border' => '',
@@ -51,7 +52,10 @@ function featured_box( $atts, $content = null ) {
 
 	$classes     = implode( ' ', $classes );
 	$classes_img = implode( ' ', $classes_img );
-	$link_atts   = array( 'target' => $target );
+	$link_atts   = array(
+		'target' => $target,
+		'rel'    => array( $rel ),
+	);
 
 	ob_start();
 	?>

@@ -1,3 +1,4 @@
+/* global flatsome_infinite_scroll, Packery, ga */
 jQuery(document).ready(function () {
   var container = jQuery('.shop-container .products')
   var paginationNext = '.woocommerce-pagination li a.next'
@@ -17,7 +18,7 @@ jQuery(document).ready(function () {
     append: '.product',
     checkLastPage: true,
     status: '.page-load-status',
-    hideNav: '.woocommerce-pagination',
+    hideNav: '.archive .woocommerce-pagination',
     button: '.view-more-button',
     history: flatsome_infinite_scroll.history,
     debug: false,
@@ -48,6 +49,9 @@ jQuery(document).ready(function () {
     jQuery(items).find('img').each(function (index, img) {
       img.outerHTML = img.outerHTML
     })
+
+    // Trigger resize for product box equalizer.
+    window.dispatchEvent(new Event('resize'))
 
     Flatsome.attach('lazy-load-images', container)
     flatsomeInfiniteScroll.animateNewItems(items)

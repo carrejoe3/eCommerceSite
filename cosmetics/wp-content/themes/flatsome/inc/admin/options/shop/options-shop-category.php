@@ -191,13 +191,18 @@ Flatsome_Option::add_field( 'option', array(
 	'default'   => '0',
 ) );
 
+$hide_on_wpseo_breadcrumb  = get_theme_mod( 'wpseo_breadcrumb' ) ? '__return_false' : '__return_true';
+
 Flatsome_Option::add_field( 'option', array(
-	'type'      => 'checkbox',
-	'settings'  => 'breadcrumb_home',
-	'transport' => $transport,
-	'label'     => __( 'Show home link in breadcrumb', 'flatsome-admin' ),
-	'section'   => 'woocommerce_product_catalog',
-	'default'   => 1,
+	'type'            => 'checkbox',
+	'settings'        => 'breadcrumb_home',
+	'transport'       => $transport,
+	'label'           => __( 'Show home link in breadcrumb', 'flatsome-admin' ),
+	'section'         => 'woocommerce_product_catalog',
+	'active_callback' => array(
+		$hide_on_wpseo_breadcrumb,
+	),
+	'default'         => 1,
 ) );
 
 Flatsome_Option::add_field( 'option', array(
@@ -428,6 +433,16 @@ Flatsome_Option::add_field( 'option', array(
 	'label'     => __( 'Disable Quick View', 'flatsome-admin' ),
 	'section'   => 'woocommerce_product_catalog',
 	'default'   => 0,
+) );
+
+Flatsome_Option::add_field( 'option', array(
+	'type'        => 'checkbox',
+	'settings'    => 'equalize_product_box',
+	'transport'   => $transport,
+	'label'       => esc_attr__( 'Equalize item heights', 'flatsome' ) . ' (BETA)',
+	'description' => esc_attr__( 'Equalize box items to the same height', 'flatsome' ),
+	'section'     => 'woocommerce_product_catalog',
+	'default'     => '0',
 ) );
 
 Flatsome_Option::add_field( 'option', array(

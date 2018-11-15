@@ -47,7 +47,7 @@ function flatsome_refresh_shop_partials( WP_Customize_Manager $wp_customize ) {
 	$wp_customize->selective_refresh->add_partial( 'shop-grid', array(
 	    'selector' => '.category-page-row',
 	    'fallback_refresh' => false,
-	    'settings' => array('sale_bubble_text','category_grid_style','short_description_in_grid','cat_style','sale_bubble_percentage_formatting','add_to_cart_style','add_to_cart_icon','product_box_category','product_box_rating','product_hover','bubble_style','grid_style','category_sidebar','products_pr_page','category_row_count','category_row_count_mobile','category_row_count_tablet','category_shadow','category_shadow_hover','disable_quick_view'),
+	    'settings' => array('sale_bubble_text','category_grid_style','short_description_in_grid','cat_style','sale_bubble_percentage_formatting','add_to_cart_style','add_to_cart_icon','product_box_category','product_box_rating','product_hover','bubble_style','grid_style','category_sidebar','products_pr_page','category_row_count','category_row_count_mobile','category_row_count_tablet','category_shadow','category_shadow_hover','equalize_product_box','disable_quick_view'),
 	    'container_inclusive' => true,
 	    'render_callback' => function() {
 		    if ( fl_woocommerce_version_check( '3.3.0' ) ) {

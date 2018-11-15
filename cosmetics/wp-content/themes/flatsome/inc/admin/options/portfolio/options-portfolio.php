@@ -70,6 +70,14 @@ Flatsome_Option::add_field( 'option',  array(
 	),
 ));
 
+Flatsome_Option::add_field( 'option', array(
+	'type'     => 'checkbox',
+	'settings' => 'portfolio_share',
+	'label'    => __( 'Show share icons', 'flatsome' ),
+	'section'  => 'fl-portfolio',
+	'default'  => 1,
+) );
+
 Flatsome_Option::add_field( 'option',  array(
   'type'        => 'checkbox',
   'settings'     => 'portfolio_related',

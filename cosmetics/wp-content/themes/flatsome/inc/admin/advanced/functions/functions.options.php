@@ -42,7 +42,7 @@ if ( ! function_exists( 'of_options' ) ) {
 
 		$of_options[] = array(
 			"name" => "Header Scripts",
-			"desc" => "Add custom scripts inside HEAD tag. You need to have SCRIPT tag around the scripts.",
+			"desc" => "Add custom scripts inside HEAD tag. You need to have a SCRIPT tag around scripts.",
 			"id"   => "html_scripts_header",
 			"std"  => "",
 			"type" => "textarea"
@@ -50,8 +50,24 @@ if ( ! function_exists( 'of_options' ) ) {
 
 		$of_options[] = array(
 			"name" => "Footer Scripts",
-			"desc" => "Here is the place to paste your Google Analytics code or any other JS code you might want to add to be loaded in the footer of your website.",
+			"desc" => "Add custom scripts you might want to be loaded in the footer of your website. You need to have a SCRIPT tag around scripts.",
 			"id"   => "html_scripts_footer",
+			"std"  => "",
+			"type" => "textarea"
+		);
+
+		$of_options[] = array(
+			"name" => "Body Scripts - Top",
+			"desc" => "Add custom scripts just after the BODY tag opened. You need to have a SCRIPT tag around scripts.",
+			"id"   => "html_scripts_after_body",
+			"std"  => "",
+			"type" => "textarea"
+		);
+
+		$of_options[] = array(
+			"name" => "Body Scripts - Bottom",
+			"desc" => "Add custom scripts just before the BODY tag closed. You need to have a SCRIPT tag around scripts.",
+			"id"   => "html_scripts_before_body",
 			"std"  => "",
 			"type" => "textarea"
 		);
@@ -501,6 +517,35 @@ if ( ! function_exists( 'of_options' ) ) {
 				"desc" => "Enable full width UberMenu. You can also insert this elsewhere by using the UberMenu options.",
 				"std"  => 1,
 				"type" => "checkbox"
+			);
+		}
+
+		// Yoast options.
+		if ( class_exists( 'WPSEO_Frontend' ) ) {
+			$of_options[] = array(
+				"name" => "Yoast Primary Category",
+				"id"   => "wpseo_primary_term",
+				"desc" => "Use Yoast primary category on product category pages and elements.",
+				"std"  => 0,
+				"type" => "checkbox"
+			);
+
+			$of_options[] = array(
+				"name"  => "Yoast Breadcrumbs",
+				"id"    => "wpseo_breadcrumb",
+				"desc"  => "Use Yoast breadcrumbs on product category pages, single product pages and elements.",
+				"std"   => 0,
+				"folds" => 1,
+				"type"  => "checkbox",
+			);
+
+			$of_options[] = array(
+				"name" => "",
+				"id"   => "wpseo_breadcrumb_remove_last",
+				"desc" => "Remove the last static crumb on single product pages (product title).",
+				"std"  => 1,
+				"fold" => "wpseo_breadcrumb",
+				"type" => "checkbox",
 			);
 		}
 

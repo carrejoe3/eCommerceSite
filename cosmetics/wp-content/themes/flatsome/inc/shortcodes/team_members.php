@@ -4,7 +4,6 @@ function flatsome_team_member($atts, $content = null){
   extract( shortcode_atts( array(
       '_id' => null,
       'img' => '',
-      'link' => '',
       'name' => '',
       'title' => '',
       'icon_style' => 'outline',
@@ -21,7 +20,9 @@ function flatsome_team_member($atts, $content = null){
       'style' => '',
       'depth' => '',
       'depth_hover' => '',
+      'link' => '',
       'target' => '',
+      'rel' => '',
       // Box styles
       'animate' => '',
       'text_pos' => 'bottom',
@@ -48,7 +49,11 @@ function flatsome_team_member($atts, $content = null){
     $classes_text = array();
     $classes_image = array();
     $classes_image_inner = array();
-	$link_atts = array( 'target' => $target );
+
+	$link_atts = array(
+		'target' => $target,
+		'rel'    => array( $rel ),
+	);
 
     // Fix old
     if($style == 'text-overlay'){

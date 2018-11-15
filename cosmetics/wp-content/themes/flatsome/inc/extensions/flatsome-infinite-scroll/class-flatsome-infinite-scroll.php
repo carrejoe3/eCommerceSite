@@ -22,7 +22,7 @@ class Flatsome_Infinite_Scroll {
 	 *
 	 * @var string
 	 */
-	private $version = '1.4';
+	private $version = '1.5';
 
 	/**
 	 * Holds loader type selected from theme settings.
@@ -117,7 +117,7 @@ class Flatsome_Infinite_Scroll {
 		?>
 		<style id="infinite-scroll-css" type="text/css">
 			.page-load-status,
-			.woocommerce-pagination {
+			.archive .woocommerce-pagination {
 				display: none;
 			}
 		</style>

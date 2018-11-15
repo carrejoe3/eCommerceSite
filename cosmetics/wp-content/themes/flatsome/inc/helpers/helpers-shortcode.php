@@ -429,9 +429,10 @@ function flatsome_parse_target_rel( array $link_atts, $trim = false ) {
 		$link_atts['rel'][] = 'noreferrer';
 	}
 
-	if ( isset( $link_atts['rel'] ) && is_array( $link_atts['rel'] ) ) {
-		$rel  = implode( ' ', $link_atts['rel'] );
-		$atts = " target=\"{$link_atts['target']}\" rel=\"{$rel}\" ";
+	if ( isset( $link_atts['rel'] ) && is_array( $link_atts['rel'] ) && ! empty( array_filter( $link_atts['rel'] ) ) ) {
+		$relations = array_unique( array_filter( $link_atts['rel'] ) );
+		$rel       = implode( ' ', $relations );
+		$atts      = " target=\"{$link_atts['target']}\" rel=\"{$rel}\" ";
 
 		return $trim ? trim( $atts ) : $atts;
 	}

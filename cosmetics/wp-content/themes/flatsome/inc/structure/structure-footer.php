@@ -97,6 +97,15 @@ function flatsome_footer_scripts(){
 }
 add_action('wp_footer', 'flatsome_footer_scripts');
 
+/* Insert custom body bottom script */
+function flatsome_before_body_close() {
+	if ( get_theme_mod( 'html_scripts_before_body' ) && ! is_admin() ) {
+		echo get_theme_mod( 'html_scripts_before_body' ); // WPCS: XSS ok.
+	}
+}
+
+add_action( 'wp_footer', 'flatsome_before_body_close', apply_filters( 'flatsome_before_body_close_priority', 9999 ) );
+
 
 // Custom HTML Before footer
 function flatsome_html_before_footer(){

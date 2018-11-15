@@ -9,6 +9,7 @@ function button_shortcode( $atts, $content = null ){
     'animate' => '',
     'link' => '',
     'target' => '_self',
+    'rel' => '',
     'border' => '',
     'expand' => '',
     'tooltip' => '',
@@ -70,8 +71,10 @@ function button_shortcode( $atts, $content = null ){
   }
 
   if( $target == '_blank' ) {
-    $attributes['rel'] = 'noopener noreferrer';
+    $attributes['rel'][] = 'noopener noreferrer';
   }
+
+  if ( $rel ) $attributes['rel'][] = $rel;
 
 
   if( $link ) {

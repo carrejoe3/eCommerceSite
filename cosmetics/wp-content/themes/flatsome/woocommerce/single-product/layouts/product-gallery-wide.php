@@ -18,7 +18,7 @@
 				<div class="large-7 col">
 					<div class="entry-summary <?php flatsome_product_summary_classes();?>">
 						<?php
-							 woocommerce_breadcrumb();
+							 flatsome_breadcrumb();
 							 woocommerce_template_single_title();
 							 woocommerce_template_single_rating();
 							 woocommerce_template_single_excerpt();

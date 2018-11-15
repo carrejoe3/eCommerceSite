@@ -31,7 +31,7 @@ function shortcode_ux_slider($atts, $content=null) {
         'draggable' => 'true',
         'friction' => '0.6',
         'selectedattraction' => '0.1',
-        'threshold' => '5',
+        'threshold' => '10',
 
         // Derpicated
         'mobile' => 'true',
@@ -51,7 +51,7 @@ function shortcode_ux_slider($atts, $content=null) {
     if($mobile !==  'true' && !$visibility) {$visibility = 'hide-for-small';}
 
     // Bullet style
-	if($bullet_style) $classes[] = 'slider-nav-dots-'.$bullet_style;
+    if($bullet_style) $classes[] = 'slider-nav-dots-'.$bullet_style;
 
     // Nav style
     if($nav_style) $classes[] = 'slider-nav-'.$nav_style;

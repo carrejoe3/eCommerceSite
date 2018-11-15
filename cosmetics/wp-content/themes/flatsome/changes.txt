@@ -1,3 +1,50 @@
+--- 3.7.1 ---
+FIXED: Outdated WooCommerce 3.5.1 templates.
+FIXED: Various CSS errors with new sticky add to cart.
+FIXED: Vertical tab content padding in RTL.
+FIXED: Backward compatibility for deprecated get_flatsome_breadcrumbs().
+
+--- 3.7.0 ---
+NEW: WooCommerce 3.5 compatibility.
+NEW: Catalog box items height equalizer.
+NEW: Improved shipping options design.
+NEW: Sticky add to cart option.
+NEW: YOAST breadcrumbs integration.
+NEW: YOAST primary category integration.
+NEW: UX Builder edit button in Gutenberg.
+NEW: Relation input field on element links.
+NEW: Input fields to add scripts inside the body tag.
+NEW: Save as Private in UX Builder.
+NEW: Boxed shipping labels style option.
+NEW: Option to show/hide shipping estimate.
+NEW: Option to show user display name in header instead of 'My Account'.
+NEW: Option to change back to top button shape.
+NEW: Option to change back to top button alignment.
+NEW: Option to show back to top on mobile.
+NEW: Option to show/hide share icons in portfolio.
+
+FIXED: Search submit button outside search field (flat style) in RTL.
+FIXED: Posts selection per language in builder with WPML.
+FIXED: Active menu item for categories and portfolio.
+FIXED: Depth hover for single grid items.
+FIXED: Builder duplicated link input field in Team Members.
+FIXED: Multi select layered nav styling for filter widget.
+FIXED: Duplicated '(optional)' on checkout field with floating labels.
+FIXED: Blog posts and portfolio shortcode slider to row conversion.
+FIXED: Related products on single product page slider to row conversion.
+FIXED: Blog posts shortcode category upgrade compatibility (when coming from v2).
+FIXED: Scroll To: Issue where navigation on page load triggered multiple times.
+FIXED: Jetpack lazy load intervening with single product main gallery.
+FIXED: Blog posts element Read More color setting.
+FIXED: Text editor main colors selection.
+FIXED: Various CSS improvements.
+
+TWEAK: Quick view: Stopped redirect to product page when adding to cart.
+TWEAK: Quick view: Removed lonely paging dot on slider when only one image is available.
+TWEAK: Floating labels required fields improvements.
+TWEAK: Decreased size of product images in widgets.
+TWEAK: Improved description and live refresh on multiple settings.
+
 --- 3.6.2 ---
 FIXED: Outdated WooCommerce 3.4.4 files.
 FIXED: Mobile off-canvas sidebar did not work on product stacked layout.

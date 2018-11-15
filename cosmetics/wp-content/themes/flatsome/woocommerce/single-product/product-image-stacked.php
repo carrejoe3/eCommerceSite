@@ -11,24 +11,26 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @author  WooThemes
  * @package WooCommerce/Templates
- * @version 3.1.0
+ * @version 3.5.1
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-  exit;
-}
+defined( 'ABSPATH' ) || exit;
 
-global $post, $product;
+// FL: Disable check, Note: `wc_get_gallery_image_html` was added in WC 3.3.2 and did not exist prior. This check protects against theme overrides being used on older versions of WC.
+//if ( ! function_exists( 'wc_get_gallery_image_html' ) ) {
+//	return;
+//}
+
+global $product;
+
 $columns           = apply_filters( 'woocommerce_product_thumbnails_columns', 4 );
-$placeholder       = has_post_thumbnail() ? 'with-images' : 'without-images';
 $post_thumbnail_id = $product->get_image_id();
 $wrapper_classes   = apply_filters( 'woocommerce_single_product_image_gallery_classes', array(
-  'woocommerce-product-gallery',
-  'woocommerce-product-gallery--' . $placeholder,
-  'woocommerce-product-gallery--columns-' . absint( $columns ),
-  'images',
+	'woocommerce-product-gallery',
+	'woocommerce-product-gallery--' . ( $product->get_image_id() ? 'with-images' : 'without-images' ),
+	'woocommerce-product-gallery--columns-' . absint( $columns ),
+	'images',
 ) );
 
 $slider_classes = array('product-gallery-stacked', 'product-gallery-slider', 'slider', 'slider-nav-small', 'mb-half');
@@ -71,15 +73,15 @@ if(get_theme_mod('product_lightbox','default') == 'disabled'){
        }'>
     <?php
 
-    if ( has_post_thumbnail() ) {
+    if ( $product->get_image_id() ) {
       $html  = flatsome_wc_get_gallery_image_html( $post_thumbnail_id, true );
     } else {
       $html  = '<div class="woocommerce-product-gallery__image--placeholder">';
-      $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src() ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
+      $html .= sprintf( '<img src="%s" alt="%s" class="wp-post-image" />', esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ), esc_html__( 'Awaiting product image', 'woocommerce' ) );
       $html .= '</div>';
     }
 
-    echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, get_post_thumbnail_id( $post->ID ) );
+		echo apply_filters( 'woocommerce_single_product_image_thumbnail_html', $html, $post_thumbnail_id ); // phpcs:disable WordPress.XSS.EscapeOutput.OutputNotEscaped
 
     do_action( 'woocommerce_product_thumbnails' );
     ?>

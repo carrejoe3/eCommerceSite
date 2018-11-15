@@ -32,6 +32,7 @@ function shortcode_latest_from_blog($atts, $content = null, $tag) {
 		'posts' => '8',
 		'ids' => false, // Custom IDs
 		'cat' => '',
+		'category' => '', // Added for Flatsome v2 fallback
 		'excerpt' => 'visible',
 		'excerpt_length' => 15,
 		'offset' => '',
@@ -165,6 +166,11 @@ function shortcode_latest_from_blog($atts, $content = null, $tag) {
 		'ignore_sticky_posts' => true
 	);
 
+	// Added for Flatsome v2 fallback
+	if ( get_theme_mod('flatsome_fallback', 0) && $category ) {
+		$args['category_name'] = $category;
+	}
+
 	// If custom ids
 	if ( !empty( $ids ) ) {
 		$ids = explode( ',', $ids );
@@ -184,11 +190,6 @@ function shortcode_latest_from_blog($atts, $content = null, $tag) {
 	}
 
 $recentPosts = new WP_Query( $args );
-
-// Disable slider if less than selected products pr row.
-if ( $recentPosts->post_count < ($repeater['columns']+1) ) {
-	if($repeater['type'] == 'slider') $repeater['type'] = 'row';
-}
 
 // Get repeater HTML.
 get_flatsome_repeater_start($repeater);
@@ -283,7 +284,7 @@ while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
 					</div><!-- .box-text-inner -->
 					</div><!-- .box-text -->
 					<?php if(has_post_thumbnail() && ($show_date == 'badge' || $show_date == 'true')) {?>
-					<?php if(!$badge_style) $badge_style = flatsome_option('blog_badge_style'); ?>
+					<?php if(!$badge_style) $badge_style = get_theme_mod('blog_badge_style', 'outline'); ?>
 						<div class="badge absolute top post-date badge-<?php echo $badge_style; ?>">
 							<div class="badge-inner">
 								<span class="post-date-day"><?php echo get_the_time('d', get_the_ID()); ?></span><br>

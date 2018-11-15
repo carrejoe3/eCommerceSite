@@ -262,7 +262,7 @@ add_shortcode( 'ux_product_breadcrumbs', function ( $atts ) {
 
 	ob_start();
 	echo '<div class="product-breadcrumb-container is-' . $size . '">';
-	woocommerce_breadcrumb();
+	flatsome_breadcrumb();
 	echo '</div>';
 
 	return ob_get_clean();

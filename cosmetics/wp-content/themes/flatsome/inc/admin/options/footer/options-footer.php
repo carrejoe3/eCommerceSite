@@ -10,7 +10,7 @@ Flatsome_Option::add_section( 'footer', array(
 Flatsome_Option::add_field( '', array(
 	'type'     => 'custom',
 	'settings' => 'custom_title_custom_footer',
-	'label'    => __( '', 'flatsome-admin' ),
+	'label'    => '',
 	'section'  => 'footer',
 	'default'  => '<div class="options-title-divider"  style="margin-bottom:15px">Custom Footer</div>',
 ) );
@@ -32,7 +32,7 @@ $hide_on_custom_footer_block = array(
 Flatsome_Option::add_field( '', array(
 	'type'            => 'custom',
 	'settings'        => 'custom_html_footer_widgets',
-	'label'           => __( '', 'flatsome-admin' ),
+	'label'           => '',
 	'section'         => 'footer',
 	'active_callback' => $hide_on_custom_footer_block,
 	'default'         => '<div class="options-title-divider" style="margin-bottom:15px">Widgets</div><p>Click the button to go to Footer Widgets</p><div><button style="margin-bottom:15px" class="button button-primary" data-to-panel="widgets">Edit Footer Widgets</button></div>',
@@ -41,7 +41,7 @@ Flatsome_Option::add_field( '', array(
 Flatsome_Option::add_field( '', array(
 	'type'            => 'custom',
 	'settings'        => 'custom_title_footer_1',
-	'label'           => __( '', 'flatsome-admin' ),
+	'label'           => '',
 	'active_callback' => $hide_on_custom_footer_block,
 	'section'         => 'footer',
 	'default'         => '<div class="options-title-divider">Footer 1</div>',
@@ -112,7 +112,7 @@ Flatsome_Option::add_field( 'option', array(
 Flatsome_Option::add_field( '', array(
 	'type'            => 'custom',
 	'settings'        => 'custom_title_footer_2',
-	'label'           => __( '', 'flatsome-admin' ),
+	'label'           => '',
 	'section'         => 'footer',
 	'default'         => '<div class="options-title-divider">Footer 2</div>',
 	'active_callback' => $hide_on_custom_footer_block,
@@ -159,7 +159,6 @@ Flatsome_Option::add_field( 'option', array(
 	'active_callback' => $hide_on_custom_footer_block,
 ) );
 
-
 Flatsome_Option::add_field( 'option', array(
 	'type'            => 'color-alpha',
 	'alpha'           => true,
@@ -184,7 +183,7 @@ Flatsome_Option::add_field( 'option', array(
 Flatsome_Option::add_field( '', array(
 	'type'     => 'custom',
 	'settings' => 'custom_title_footer_absolute',
-	'label'    => __( '', 'flatsome-admin' ),
+	'label'    => '',
 	'section'  => 'footer',
 	'default'  => '<div class="options-title-divider">Absolute Footer</div>',
 ) );
@@ -247,19 +246,68 @@ Flatsome_Option::add_field( 'option', array(
 	'default'           => '',
 ) );
 
+$hide_off_back_to_top = array(
+	array( 'setting' => 'back_to_top', 'operator' => '==', 'value' => true ),
+);
+
+Flatsome_Option::add_field( '', array(
+	'type'            => 'custom',
+	'settings'        => 'back_to_top_button_title',
+	'label'           => '',
+	'section'         => 'footer',
+	'default'         => '<div class="options-title-divider">Back To Top Button</div>',
+) );
+
 Flatsome_Option::add_field( 'option', array(
 	'type'      => 'checkbox',
 	'settings'  => 'back_to_top',
-	'transport' => $transport,
-	'label'     => __( 'Back To Top Button', 'flatsome-admin' ),
+	'label'     => __( 'Enable Back To Top Button', 'flatsome-admin' ),
 	'section'   => 'footer',
 	'default'   => 1,
+) );
+
+Flatsome_Option::add_field( 'option', array(
+	'type'            => 'radio-image',
+	'settings'        => 'back_to_top_shape',
+	'label'           => __( 'Button Shape', 'flatsome-admin' ),
+	'section'         => 'footer',
+	'transport'       => $transport,
+	'default'         => 'circle',
+	'choices'         => array(
+		'circle'  => $image_url . 'back-to-top-outline-circle.svg',
+		'square'  => $image_url . 'back-to-top-outline-square.svg',
+	),
+	'active_callback' => $hide_off_back_to_top,
+) );
+
+Flatsome_Option::add_field( 'option', array(
+	'type'            => 'radio-buttonset',
+	'settings'        => 'back_to_top_position',
+	'label'           => __( 'Position', 'flatsome-admin' ),
+	'section'         => 'footer',
+	'transport'       => $transport,
+	'default'         => 'right',
+	'choices'         => array(
+		'left'  => __( 'Left', 'flatsome-admin' ),
+		'right' => __( 'Right', 'flatsome-admin' ),
+	),
+	'active_callback' => $hide_off_back_to_top,
+) );
+
+Flatsome_Option::add_field( 'option', array(
+	'type'            => 'checkbox',
+	'settings'        => 'back_to_top_mobile',
+	'label'           => __( 'Show on Mobile', 'flatsome-admin' ),
+	'section'         => 'footer',
+	'transport'       => $transport,
+	'default'         => 0,
+	'active_callback' => $hide_off_back_to_top,
 ) );
 
 Flatsome_Option::add_field( '', array(
 	'type'            => 'custom',
 	'settings'        => 'custom_title_footer_html',
-	'label'           => __( '', 'flatsome-admin' ),
+	'label'           => '',
 	'section'         => 'footer',
 	'active_callback' => $hide_on_custom_footer_block,
 	'default'         => '<div class="options-title-divider">Footer HTML</div>',
@@ -301,7 +349,6 @@ function flatsome_refresh_footer_partials( WP_Customize_Manager $wp_customize ) 
 		'settings'        => array(
 			'footer_2',
 			'footer_1',
-			'back_to_top',
 			'html_before_footer',
 			'html_after_footer',
 			'footer_2_color',

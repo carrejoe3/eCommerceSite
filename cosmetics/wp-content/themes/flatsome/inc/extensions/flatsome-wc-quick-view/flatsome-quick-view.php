@@ -37,7 +37,9 @@ function flatsome_quickview() {
 	$product = wc_get_product( $prod_id );
 	ob_start();
 
+	add_filter( 'woocommerce_add_to_cart_form_action', '__return_empty_string' ); // Disable form action that causes redirect.
 	wc_get_template( 'content-single-product-lightbox.php' );
+	remove_filter( 'woocommerce_add_to_cart_form_action', '__return_empty_string' );
 
 	$output = ob_get_contents();
 	ob_end_clean();

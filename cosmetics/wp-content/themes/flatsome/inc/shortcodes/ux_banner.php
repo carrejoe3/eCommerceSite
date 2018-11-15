@@ -59,8 +59,9 @@ function flatsome_ux_banner( $atts, $content = null ){
 		'padding'            => '',
 
 		// Link.
-		'target'             => '',
 		'link'               => '',
+		'target'             => '',
+		'rel'                => '',
 	), $atts ) );
 
    // Stop if visibility is hidden.
@@ -69,7 +70,10 @@ function flatsome_ux_banner( $atts, $content = null ){
    ob_start();
 
 	$classes   = array( 'has-hover' );
-	$link_atts = array( 'target' => $target );
+	$link_atts = array(
+		'target' => $target,
+		'rel'    => array( $rel ),
+	);
 
    // Custom Class.
    if($class) $classes[] = $class;

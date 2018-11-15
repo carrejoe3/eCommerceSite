@@ -30,7 +30,7 @@ add_filter('flatsome_header_class','flatsome_product_header_classes', 10);
 // Add Breadcrunmbs To Description if no custom page header is set
 function flatsome_woocommerce_product_breadcrumb() {
   if(!get_theme_mod('product_header')){
-    woocommerce_breadcrumb();
+  	 flatsome_breadcrumb();
   }
 }
 add_action( 'woocommerce_single_product_summary', 'flatsome_woocommerce_product_breadcrumb',  0 );

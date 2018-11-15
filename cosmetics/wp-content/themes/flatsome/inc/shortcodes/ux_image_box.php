@@ -8,6 +8,7 @@ function ux_image_box( $atts, $content = null ) {
 		'depth_hover'     => '',
 		'link'            => '',
 		'target'          => '_self',
+		'rel'             => '',
 		// Box styles
 		'animate'         => '',
 		'text_pos'        => 'bottom',
@@ -38,7 +39,12 @@ function ux_image_box( $atts, $content = null ) {
 	if ( $depth ) $classes_box[] = 'box-shadow-' . $depth;
 	if ( $depth_hover ) $classes_box[] = 'box-shadow-' . $depth_hover . '-hover';
 
-	$link_start = '<a href="' . $link . '" target="' . $target . '">';
+	$link_atts = array(
+		'target' => $target,
+		'rel'    => array( $rel ),
+	);
+
+	$link_start = '<a href="' . $link . '"' . flatsome_parse_target_rel( $link_atts ) . '>';
 	$link_end   = '</a>';
 
 	if ( $style ) $classes_box[] = 'box-' . $style;

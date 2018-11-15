@@ -46,7 +46,7 @@ body.framed, body.framed header, body.framed .header-wrapper, body.boxed, body.b
 <?php
 $content_bg = get_theme_mod('content_bg');
 if($content_bg){ ?>
-	#wrapper,#main,#main.dark{background-color: <?php echo $content_bg; ?>}
+	.sticky-add-to-cart--active, #wrapper,#main,#main.dark{background-color: <?php echo $content_bg; ?>}
 <?php } ?>
 
 <?php
@@ -183,6 +183,9 @@ if($color_primary && $color_primary !== Flatsome_Default::COLOR_PRIMARY){ ?>
 /* Color !important */
 [data-text-color="primary"]{color: <?php echo $color_primary; ?>!important;}
 
+/* Background Color */
+[data-text-bg="primary"]{background-color: <?php echo $color_primary; ?>;}
+
 /* Background */
 .scroll-to-bullets a,.featured-title, .label-new.menu-item > a:after, .nav-pagination > li > .current,.nav-pagination > li > span:hover,.nav-pagination > li > a:hover,.has-hover:hover .badge-outline .badge-inner,button[type="submit"], .button.wc-forward:not(.checkout):not(.checkout-button), .button.submit-button, .button.primary:not(.is-outline),.featured-table .title,.is-outline:hover, .has-icon:hover .icon-label,.nav-dropdown-bold .nav-column li > a:hover, .nav-dropdown.nav-dropdown-bold > li > a:hover, .nav-dropdown-bold.dark .nav-column li > a:hover, .nav-dropdown.nav-dropdown-bold.dark > li > a:hover, .is-outline:hover, .tagcloud a:hover,.grid-tools a, input[type='submit']:not(.is-form), .box-badge:hover .box-text, input.button.alt,.nav-box > li > a:hover,.nav-box > li.active > a,.nav-pills > li.active > a ,.current-dropdown .cart-icon strong, .cart-icon:hover strong, .nav-line-bottom > li > a:before, .nav-line-grow > li > a:before, .nav-line > li > a:before,.banner, .header-top, .slider-nav-circle .flickity-prev-next-button:hover svg, .slider-nav-circle .flickity-prev-next-button:hover .arrow, .primary.is-outline:hover, .button.primary:not(.is-outline), input[type='submit'].primary, input[type='submit'].primary, input[type='reset'].button, input[type='button'].primary, .badge-inner{background-color: <?php echo $color_primary; ?>;}
 /* Border */
@@ -200,6 +203,7 @@ $color_secondary = get_theme_mod('color_secondary', Flatsome_Default::COLOR_SECO
 if( $color_secondary && $color_secondary !== Flatsome_Default::COLOR_SECONDARY ){ ?>
 	/* Background Color */
 	[data-icon-label]:after, .secondary.is-underline:hover,.secondary.is-outline:hover,.icon-label,.button.secondary:not(.is-outline),.button.alt:not(.is-outline), .badge-inner.on-sale, .button.checkout, .single_add_to_cart_button{ background-color:  <?php echo $color_secondary; ?>; }
+	[data-text-bg="secondary"]{background-color: <?php echo $color_secondary; ?>;}
 	/* Color */
 	.secondary.is-underline,.secondary.is-link, .secondary.is-outline,.stars a.active, .star-rating:before, .woocommerce-page .star-rating:before,.star-rating span:before, .color-secondary{color: <?php echo $color_secondary ;?>}
 	/* Color !important */
@@ -222,6 +226,10 @@ if( $color_success && $color_success !== Flatsome_Default::COLOR_SUCCESS ){ ?>
 	.success-border{
 		border-color: <?php echo $color_success;?>!important;
 	}
+	/* Color !important */
+	[data-text-color="success"]{color: <?php echo $color_success; ?>!important;}
+	/* Background Color */
+	[data-text-bg="success"]{background-color: <?php echo $color_success; ?>;}
 <?php } ?>
 
 <?php
@@ -232,6 +240,10 @@ if($alert_color && $alert_color !== Flatsome_Default::COLOR_ALERT){ ?>
 	.alert.is-link, .alert.is-outline, .color-alert{
 		color: <?php echo $alert_color; ?>;
 	}
+	/* Color !important */
+	[data-text-color="alert"]{color: <?php echo $alert_color; ?>!important;}
+	/* Background Color */
+	[data-text-bg="alert"]{background-color: <?php echo $alert_color; ?>;}
 <?php } ?>
 
 <?php
